@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+    <aop:aspectj-autoproxy/>
     <bean class="org.lwp.spring.FirstBean" id="firstBean">
         <property name="name" value="小明"></property>
     </bean>
+
+    <bean class="org.lwp.spring.HaveAStream" id="haveAStream">
+        <constructor-arg value="#{T(System).out}"></constructor-arg>
+    </bean>
+    <aop:config>
+        <aop:aspect ref="firstBean">
+            <aop:pointcut id="test" expression="execution(* *.sayHello(..))"/>
+            <aop:before pointcut-ref="test" method="sayYou"></aop:before>
+            <aop:after method="sayYou" pointcut-ref="test"></aop:after>
+        </aop:aspect>
+    </aop:config>
 </beans>
