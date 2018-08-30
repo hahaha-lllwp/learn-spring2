@@ -7,6 +7,10 @@ public class People implements Cloneable{
     public People() {
     }
 
+    public People(String name) {
+        this.name = name;
+    }
+
     public void sayMe(){
         System.out.println(name);
     }

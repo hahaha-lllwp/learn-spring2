@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 public class ProdProfileConfig {
 
     @Bean
-    public People getPeople(){
+    public People people(){
         return new People("I am a people of profile named 'prod'");
     }
 }

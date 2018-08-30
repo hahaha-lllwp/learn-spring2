@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class PeopleProfileConfig {
 
-    @Bean
+    @Bean("people")
     @Profile("dev")
     public People getDevPeople(){
         return new People("I am a people of profile named 'dev '");
     }
 
-    @Bean
+    @Bean("people")
     @Profile("prod")
     public People getProdPeople(){
         return new People("I am a people of profile named 'prod'");
