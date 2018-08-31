@@ -25,7 +25,7 @@ public class ProfileMain {
 
 
     private static void xmlProfile() {
-        //        System.setProperty("spring.profiles.default","dev");
+                System.setProperty("spring.profiles.default","dev");
 //        System.setProperty("spring.profiles.active","prod");
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("profileTest.xml");
         People people = (People)context.getBean("people");
