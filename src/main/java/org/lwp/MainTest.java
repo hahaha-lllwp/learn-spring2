@@ -9,9 +9,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class MainTest {
     public static void main(String[] args) {
-//        classPathXml();
+        classPathXml();
 //        systemPathXml();
-        annotionConfigClass();
+//        annotionConfigClass();
     }
 
     private static void classPathXml() {
